@@ -30,6 +30,7 @@ jobs:
         name: Prettier Check
       - run: npm run build
         working-directory: ./wordle-web
+        name: Build Vue App
       - run: npm run test:unit
         working-directory: ./wordle-web
         name: Run Vitest Unit Tests
