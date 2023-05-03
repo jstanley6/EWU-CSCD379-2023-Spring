@@ -4,7 +4,8 @@
       <v-card-title>About</v-card-title>
       <v-card-text>
         Welcome to the Wordle game app! This project was created for a class assignment and
-        showcases our skills in Vue.js and Veutify. Thank you for playing Wordle and have fun! Meg is super awesome by the way!!!
+        showcases our skills in Vue.js and Veutify. Thank you for playing Wordle and have fun! Meg
+        is super awesome by the way!!!
       </v-card-text>
       <v-card-actions>
         <v-btn color="teal" variant="tonal" @click="$router.go(-1)">Back</v-btn>
