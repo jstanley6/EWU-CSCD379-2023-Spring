@@ -4,20 +4,22 @@ import ThemeSelector from './components/ThemeSelector.vue'
 </script>
 
 <template>
-  <v-container fluid class="pa-0">
-    <v-row class="ma-0">
-      <v-col class="pa-0">
+
+
         <v-toolbar density="compact" class="elevation-4">
           <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">
             <v-icon icon="mdi-gamepad-square" class="mx-1" color="teal"></v-icon>
             Wordle
           </v-toolbar-title>
           <v-spacer></v-spacer>
+          <ThemeSelector />
           <v-menu location="bottom">
             <template v-slot:activator="{ props }">
-              <v-btn k v-bind="props"> <v-icon icon="mdi-menu" size="x-large"></v-icon> </v-btn>
+              <v-btn v-bind="props"> <v-icon icon="mdi-menu" size="x-large"></v-icon> </v-btn>
             </template>
 
+
+            
             <v-list flat>
               <v-list-item>
                 <v-btn variant="plain" to="/"> Home </v-btn>
@@ -31,15 +33,10 @@ import ThemeSelector from './components/ThemeSelector.vue'
             </v-list>
           </v-menu>
 
-          <ThemeSelector />
+         
         </v-toolbar>
-      </v-col>
-    </v-row>
-
-    <v-row>
-      <v-col cols="auto" class="mx-auto">
+    <v-container fluid class="pa-0">
+    
         <RouterView />
-      </v-col>
-    </v-row>
   </v-container>
 </template>
