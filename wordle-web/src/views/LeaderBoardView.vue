@@ -46,7 +46,7 @@ interface LeaderboardData {
   weightedScore: number
 }
 
-const leaderboardUrl = 'https://zealous-pond-0771e721e.3.azurestaticapps.net/Leaderboard/GetTopTenPlayers'
+const leaderboardUrl = 'https://zealous-pond-0771e721e.3.azurestaticapps.net/Player/GetTopTenPlayers'
 const overlay = ref(true)
 const leaderboardData = ref<LeaderboardData[]>()
 Axios.get(leaderboardUrl)
