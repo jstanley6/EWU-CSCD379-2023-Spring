@@ -1,24 +1,38 @@
 <template>
-  <main>
-    <v-card class="mx-auto elevation-3">
-      <v-card-title>About</v-card-title>
-      <v-card-text>
-        Welcome to the Wordle game app! This project was created for a class assignment and
-        showcases our skills in Vue.js and Veutify. Thank you for playing Wordle and have fun! Meg
-        is super awesome by the way!!!
-      </v-card-text>
-      <v-card-actions>
-        <v-btn color="teal" variant="tonal" @click="$router.go(-1)">Back</v-btn>
-      </v-card-actions>
-    </v-card>
-  </main>
+
+{{ isDialogOpen }}
+
+  <WeatherDialog v-model="isDialogOpen" :weather="currentWeather!"></WeatherDialog>
+
+  <v-card v-for="item in weatherData" :key="item.date" @click="setCurrentWeather(item)">
+    {{ item.date }} - {{ item.temperatureC }} - {{ item.summary }}
+  </v-card>
 </template>
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+
+<script setup lang="ts">
+import WeatherDialog from "@/components/WeatherDialog.vue"
+import type { WeatherData } from "../types/WeatherData"
+import Axios from "axios"
+import { ref } from "vue"
+
+
+const isDialogOpen = ref(false)
+const weatherData = ref<WeatherData[]>()
+const currentWeather = ref<WeatherData>()
+
+function setCurrentWeather(weather: WeatherData) {
+  currentWeather.value = weather
+  isDialogOpen.value = true
 }
-</style>
+
+Axios.get("https://localhost:7043/WeatherForecast")
+.then((response) => {
+  console.log(response.data)
+  weatherData.value = response.data
+})
+.catch((err) => { 
+  console.log(err)
+}) 
+
+</script>
+
