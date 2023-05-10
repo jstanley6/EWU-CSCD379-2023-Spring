@@ -30,6 +30,7 @@ builder.Services.AddDbContext<AppDbContext>( options =>
     options.UseSqlServer(connectionString);
 });
 builder.Services.AddScoped<WordService>();
+builder.Services.AddScoped<LeaderboardService>();
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
