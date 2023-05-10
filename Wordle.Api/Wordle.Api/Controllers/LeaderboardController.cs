@@ -5,8 +5,9 @@ using Wordle.Api.Services;
 
 namespace Wordle.Api.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
+    
     public class LeaderboardController : ControllerBase
     {
         private readonly LeaderboardService _leaderboardService;

@@ -3,6 +3,7 @@ using Wordle.Api.Data;
 
 namespace Wordle.Api.Services
 {
+
     public class LeaderboardService
     {
         private readonly AppDbContext _db;
