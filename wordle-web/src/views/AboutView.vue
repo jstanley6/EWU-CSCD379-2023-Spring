@@ -1,6 +1,5 @@
 <template>
-
-{{ isDialogOpen }}
+  {{ isDialogOpen }}
 
   <WeatherDialog v-model="isDialogOpen" :weather="currentWeather!"></WeatherDialog>
 
@@ -10,11 +9,10 @@
 </template>
 
 <script setup lang="ts">
-import WeatherDialog from "@/components/WeatherDialog.vue"
-import type { WeatherData } from "../types/WeatherData"
-import Axios from "axios"
-import { ref } from "vue"
-
+import WeatherDialog from '@/components/WeatherDialog.vue'
+import type { WeatherData } from '../types/WeatherData'
+import Axios from 'axios'
+import { ref } from 'vue'
 
 const isDialogOpen = ref(false)
 const weatherData = ref<WeatherData[]>()
@@ -25,14 +23,12 @@ function setCurrentWeather(weather: WeatherData) {
   isDialogOpen.value = true
 }
 
-Axios.get("https://localhost:7043/WeatherForecast")
-.then((response) => {
-  console.log(response.data)
-  weatherData.value = response.data
-})
-.catch((err) => { 
-  console.log(err)
-}) 
-
+Axios.get('https://localhost:7043/WeatherForecast')
+  .then((response) => {
+    console.log(response.data)
+    weatherData.value = response.data
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 </script>
-
