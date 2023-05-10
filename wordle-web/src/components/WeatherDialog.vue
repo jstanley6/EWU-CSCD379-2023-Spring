@@ -10,8 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import type { WeatherData } from '../types/WeatherData'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   weather: WeatherData
 }>()
